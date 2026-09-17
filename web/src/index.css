@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 36 24% 97%;
+    --foreground: 24 12% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 24 12% 14%;
+    --primary: 22 62% 36%;
+    --primary-foreground: 40 40% 98%;
+    --secondary: 36 16% 94%;
+    --secondary-foreground: 24 10% 22%;
+    --muted: 36 14% 94%;
+    --muted-foreground: 24 6% 40%;
+    --accent: 36 20% 93%;
+    --accent-foreground: 24 10% 16%;
+    --destructive: 0 72% 48%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 30 12% 88%;
+    --input: 30 12% 88%;
+    --ring: 22 62% 36%;
+    --up: 0 72% 46%;
+    --down: 152 55% 32%;
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-size: 14px;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
+    line-height: 1.5;
+    font-feature-settings: "kern" 1;
+  }
+
+  table {
+    font-variant-numeric: tabular-nums;
+  }
+}

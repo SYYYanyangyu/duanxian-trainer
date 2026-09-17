@@ -1,0 +1,9 @@
+.env
+today.json
+journal.json
+data/
+*.tmp
+__pycache__/
+*.pyc
+web/node_modules/
+web/dist/
