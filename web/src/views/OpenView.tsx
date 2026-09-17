@@ -70,6 +70,7 @@ export function OpenView({
       </div>
       <section className="space-y-2">
         <SectionTitle>今日题材</SectionTitle>
+        <div className="desk-panel">
         <Table>
           <TableHeader>
             <TableRow>
@@ -96,6 +97,7 @@ export function OpenView({
             ))}
           </TableBody>
         </Table>
+        </div>
       </section>
       <Fold title={`完整涨停池 · 按题材分组 · ${data.limit_up?.length || 0} 只`}>
         <div className="space-y-4">

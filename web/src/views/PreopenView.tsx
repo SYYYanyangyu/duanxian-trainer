@@ -33,9 +33,9 @@ function AuctionSteps() {
           <div
             key={id}
             className={cn(
-              "rounded-lg border bg-card px-3 py-2",
-              st === "now" && "border-primary bg-accent",
-              st === "done" && "opacity-60",
+              "desk-panel px-3 py-2.5",
+              st === "now" && "border-primary bg-accent shadow-panel",
+              st === "done" && "opacity-55",
             )}
           >
             <div className="text-sm font-semibold">{time}</div>
@@ -80,6 +80,7 @@ function AuctionView({
       <div className="grid gap-4 xl:grid-cols-[minmax(0,1.5fr)_minmax(20rem,1fr)]">
         <section className="space-y-2">
           <SectionTitle extra={auc.as_of ? `报价 ${auc.as_of}` : "还没拉到今开"}>昨日涨停 · 竞价/今开</SectionTitle>
+          <div className="desk-panel">
           <Table>
             <TableHeader>
               <TableRow>
@@ -116,6 +117,7 @@ function AuctionView({
               })}
             </TableBody>
           </Table>
+          </div>
         </section>
         <section className="space-y-3">
           <SectionTitle>点中的依据</SectionTitle>
@@ -181,6 +183,7 @@ function CloseView({
       <div className="grid gap-4 xl:grid-cols-[minmax(0,1.6fr)_minmax(18rem,0.9fr)]">
         <section className="space-y-2">
           <SectionTitle extra="用今天连板做明早竞价名单">明早竞价名单</SectionTitle>
+          <div className="desk-panel">
           <Table>
             <TableHeader>
               <TableRow>
@@ -215,6 +218,7 @@ function CloseView({
               ))}
             </TableBody>
           </Table>
+          </div>
         </section>
         <section className="space-y-2">
           <SectionTitle>点中的依据</SectionTitle>

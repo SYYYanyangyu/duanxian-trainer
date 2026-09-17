@@ -6,7 +6,10 @@ import type { Actor } from "@/lib/types";
 export function SectionTitle({ children, extra }: { children: ReactNode; extra?: ReactNode }) {
   return (
     <div className="flex min-h-8 items-start justify-between gap-3">
-      <h2 className="shrink-0 pt-1 text-[13px] font-semibold leading-none tracking-tight">{children}</h2>
+      <h2 className="flex shrink-0 items-center gap-2 pt-1 text-[13px] font-semibold leading-none tracking-tight">
+        <span className="h-3.5 w-0.5 rounded-full bg-primary" />
+        {children}
+      </h2>
       {extra ? <div className="max-w-[78%] text-right text-xs leading-5 text-muted-foreground">{extra}</div> : null}
     </div>
   );
@@ -24,8 +27,8 @@ export function StatusChip({
       className={cn(
         "inline-flex h-5 shrink-0 items-center rounded px-1.5 text-[11px] font-medium leading-none",
         tone === "muted" && "bg-muted text-muted-foreground",
-        tone === "up" && "bg-red-50 text-up",
-        tone === "down" && "bg-emerald-50 text-down",
+        tone === "up" && "bg-up-bg text-up",
+        tone === "down" && "bg-down-bg text-down",
       )}
     >
       {children}

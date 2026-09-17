@@ -49,13 +49,13 @@ export function PaperDesk({
   return (
     <div className="space-y-3">
       <SectionTitle extra={note || "每人10万纸上资金，成交每笔2万。"}>纸上对打</SectionTitle>
-      <div className="overflow-hidden rounded-lg border bg-card">
-        <div className="grid grid-cols-2 divide-x border-b md:grid-cols-4">
+      <div className="desk-panel">
+        <div className="grid grid-cols-2 divide-x divide-border/80 border-b border-border/80 md:grid-cols-4">
           {ROLE_ORDER.map((role) => (
             <RoleColumn key={role.id} role={role} actor={findActor(actors, role.id)} />
           ))}
         </div>
-        <div className="grid grid-cols-2 divide-x border-b md:grid-cols-4">
+        <div className="grid grid-cols-2 divide-x divide-border/80 border-b border-border/80 bg-muted/30 md:grid-cols-4">
           {ROLE_ORDER.map((role) => {
             const actor = findActor(actors, role.id);
             return (
@@ -65,7 +65,7 @@ export function PaperDesk({
             );
           })}
         </div>
-        <div className="grid grid-cols-2 divide-x md:grid-cols-4">
+        <div className="grid grid-cols-2 divide-x divide-border/80 md:grid-cols-4">
           {ROLE_ORDER.map((role) => (
             <div key={role.id} className="px-3 py-2">
               <ActorBets actor={findActor(actors, role.id)} />
@@ -73,6 +73,7 @@ export function PaperDesk({
           ))}
         </div>
       </div>
+      <div className="desk-panel">
       <Table>
         <TableHeader>
           <TableRow>
@@ -101,6 +102,7 @@ export function PaperDesk({
           ))}
         </TableBody>
       </Table>
+      </div>
       {think ? (
         <Collapsible>
           <CollapsibleTrigger className="flex h-6 items-center gap-1 text-xs leading-none text-muted-foreground hover:text-foreground">

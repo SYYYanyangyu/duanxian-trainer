@@ -13,7 +13,7 @@ function BoardGrid({ title, items, showZt = false }: { title: string; items: EmB
       <div className="mb-1.5 text-[11px] text-muted-foreground">{title}</div>
       <div className="grid grid-cols-2 gap-1.5">
         {items.map((b) => (
-          <div key={b.bk || b.name} className="rounded-md bg-muted/50 px-2 py-1.5">
+          <div key={b.bk || b.name} className="rounded-md border border-border/70 bg-muted/40 px-2 py-1.5">
             <div className="flex items-start justify-between gap-2">
               <span className="text-xs font-medium leading-4">{b.name}</span>
               <Pct value={b.pct} />
@@ -83,8 +83,8 @@ export function StockDetail({ stock, empty }: { stock?: Stock | null; empty?: st
 
 export function Fold({ title, children, defaultOpen = false }: { title: string; children: ReactNode; defaultOpen?: boolean }) {
   return (
-    <Collapsible defaultOpen={defaultOpen} className="rounded-xl border bg-card">
-      <CollapsibleTrigger className="flex h-10 w-full items-center justify-between px-4 text-[13px] font-medium leading-none">
+    <Collapsible defaultOpen={defaultOpen} className="desk-panel">
+      <CollapsibleTrigger className="flex h-10 w-full items-center justify-between px-4 text-[13px] font-medium leading-none hover:bg-muted/40">
         {title}
         <ChevronDown className="h-4 w-4 text-muted-foreground" />
       </CollapsibleTrigger>

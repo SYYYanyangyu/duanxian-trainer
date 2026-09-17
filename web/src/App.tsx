@@ -106,15 +106,20 @@ export default function App() {
 
   return (
     <div className="min-h-screen">
-      <header className="sticky top-0 z-20 border-b bg-background/95 backdrop-blur">
-        <div className="mx-auto flex h-12 max-w-[1480px] items-center justify-between gap-4 px-4">
+      <header className="sticky top-0 z-20 border-b border-border/80 bg-header/90 shadow-[0_1px_0_rgba(15,23,42,0.04)] backdrop-blur-md">
+        <div className="mx-auto flex h-14 max-w-[1480px] items-center justify-between gap-4 px-4">
           <div className="flex items-center gap-3">
-            <span className="text-[15px] font-semibold leading-none">短线选股</span>
-            <span className="text-xs leading-none text-muted-foreground">开盘前 / 开盘后 · 纸上对打</span>
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-up text-[13px] font-bold leading-none text-white">涨</span>
+            <div className="leading-none">
+              <div className="text-[15px] font-semibold tracking-tight">短线选股</div>
+              <div className="mt-1 text-[11px] text-muted-foreground">开盘前 / 开盘后 · 纸上对打</div>
+            </div>
           </div>
           <div className="flex items-center gap-3">
-            <span className="text-[13px] leading-none text-muted-foreground">{session.label}</span>
-            <span className="font-mono text-[13px] leading-none tabular-nums">{formatLiveTime(now)}</span>
+            <span className="inline-flex h-7 items-center rounded-full border border-border/80 bg-card px-2.5 text-[12px] font-medium leading-none text-foreground">
+              {session.label}
+            </span>
+            <span className="font-mono text-[13px] leading-none tabular-nums text-muted-foreground">{formatLiveTime(now)}</span>
             <Button onClick={() => void load(true)} disabled={loading} variant="outline" size="sm">
               <RefreshCw className={loading ? "h-3.5 w-3.5 animate-spin" : "h-3.5 w-3.5"} />
               {loading ? "刷新中…" : "刷新数据"}
@@ -150,7 +155,7 @@ export default function App() {
                 {session.hint} 现在是「{session.label}」。
               </p>
               {notice || live.fetch_error || live.ledger_error ? (
-                <Alert className="mt-3 border-amber-200 bg-amber-50 text-amber-900">
+                <Alert className="mt-3 border-watch/30 bg-watch-bg text-foreground">
                   {notice || `刷新警告：${live.fetch_error || live.ledger_error}`}
                 </Alert>
               ) : null}

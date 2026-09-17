@@ -4,26 +4,31 @@
 
 @layer base {
   :root {
-    --background: 36 24% 97%;
-    --foreground: 24 12% 14%;
+    --background: 216 28% 96%;
+    --foreground: 222 41% 12%;
     --card: 0 0% 100%;
-    --card-foreground: 24 12% 14%;
-    --primary: 22 62% 36%;
-    --primary-foreground: 40 40% 98%;
-    --secondary: 36 16% 94%;
-    --secondary-foreground: 24 10% 22%;
-    --muted: 36 14% 94%;
-    --muted-foreground: 24 6% 40%;
-    --accent: 36 20% 93%;
-    --accent-foreground: 24 10% 16%;
+    --card-foreground: 222 41% 12%;
+    --header: 0 0% 100%;
+    --primary: 222 47% 16%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 214 32% 94%;
+    --secondary-foreground: 222 32% 18%;
+    --muted: 214 25% 94%;
+    --muted-foreground: 215 13% 42%;
+    --accent: 214 40% 95%;
+    --accent-foreground: 222 47% 16%;
     --destructive: 0 72% 48%;
     --destructive-foreground: 0 0% 100%;
-    --border: 30 12% 88%;
-    --input: 30 12% 88%;
-    --ring: 22 62% 36%;
-    --up: 0 72% 46%;
-    --down: 152 55% 32%;
-    --radius: 0.5rem;
+    --border: 214 22% 88%;
+    --input: 214 22% 88%;
+    --ring: 217 91% 48%;
+    --up: 356 78% 48%;
+    --down: 160 70% 32%;
+    --up-bg: 356 86% 96%;
+    --down-bg: 152 42% 94%;
+    --watch: 28 90% 46%;
+    --watch-bg: 38 100% 95%;
+    --radius: 0.7rem;
   }
 
   * {
@@ -32,16 +37,50 @@
 
   html {
     font-size: 14px;
+    color-scheme: light;
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
-    font-family: "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
+    @apply text-foreground antialiased;
+    font-family: ui-sans-serif, system-ui, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
     line-height: 1.5;
-    font-feature-settings: "kern" 1;
+    background-color: hsl(var(--background));
+    background-image:
+      radial-gradient(1100px 420px at 8% -8%, hsl(217 90% 90% / 0.55), transparent 58%),
+      radial-gradient(820px 360px at 96% -4%, hsl(356 80% 93% / 0.28), transparent 52%),
+      linear-gradient(180deg, hsl(216 32% 97%) 0%, hsl(216 24% 95%) 100%);
+    background-attachment: fixed;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+      linear-gradient(hsl(214 24% 72% / 0.14) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(214 24% 72% / 0.14) 1px, transparent 1px);
+    background-size: 28px 28px;
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.28), transparent 46%);
+  }
+
+  #root {
+    position: relative;
+    z-index: 1;
+  }
+
+  ::selection {
+    background: hsl(217 91% 90%);
   }
 
   table {
     font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer components {
+  .desk-panel {
+    @apply overflow-hidden rounded-xl border border-border/80 bg-card shadow-panel;
   }
 }

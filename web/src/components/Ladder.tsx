@@ -26,7 +26,7 @@ export function Ladder({
                 onClick={() => s.code && onSelect(s.code)}
                 className={cn(
                   "flex h-8 w-full items-center justify-between rounded-md border px-2 text-left text-[13px] leading-none transition-colors",
-                  selected === s.code ? "border-primary bg-accent" : "border-transparent bg-muted/60 hover:bg-muted",
+                  selected === s.code ? "border-primary bg-accent" : "border-transparent bg-muted/70 hover:bg-muted",
                   s.verdict === "躲" && selected !== s.code && "opacity-70",
                 )}
                 title={s.theme || s.industry || ""}
@@ -38,7 +38,7 @@ export function Ladder({
           </div>
         );
         return (
-          <div key={col.boards} className="min-w-[9.5rem] rounded-lg border bg-card p-2">
+          <div key={col.boards} className="min-w-[9.5rem] rounded-xl border border-border/80 bg-card p-2 shadow-panel">
             <div className="mb-2 flex h-5 items-center text-[12px] leading-none text-muted-foreground">
               {col.boards}板 · {col.stocks.length}
             </div>
